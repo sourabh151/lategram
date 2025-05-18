@@ -1,12 +1,16 @@
 import App from "./App"
 import UserContext from "./contexts/UserContext"
+import { createRoot } from "react-dom/client"
 
-function Main() {
-  return (
-    <UserContext>
-      <App />
-    </UserContext>
-  )
-}
+createRoot(document.getElementById("root")!).render(
 
-export default Main
+	<UserContext>
+		<App />
+	</UserContext>
+)
+//function Main() {
+//  return (
+//  )
+//}
+//
+//export default Main

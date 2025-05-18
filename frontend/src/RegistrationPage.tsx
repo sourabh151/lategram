@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUserContext } from "./contexts/UserContext"
+const url = import.meta.env.VITE_MONGO_URI
 function RegistrationPage() {
   const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(true)
@@ -12,8 +13,9 @@ function RegistrationPage() {
       (async () => {
         try {
           if (username.current && password.current) {
-            const url = `http://localhost:5000/authenticate/${isLogin ? "login" : "signup"}`
-            const data = await fetch(url, {
+            const URL = `${url}${isLogin ? "authenticate/login" : "authenticate/signup"}`
+            console.log(URL);
+            const data = await fetch(URL, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
@@ -23,8 +25,8 @@ function RegistrationPage() {
                 "password": password.current.value
               })
             })
-            console.log(data);
             const result = await data.json()
+            console.log(result);
             if (result.success) {
               setUserData(result)
               localStorage.setItem("user", JSON.stringify(result));

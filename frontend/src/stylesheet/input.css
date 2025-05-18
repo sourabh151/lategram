@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lategram_light {
+  --primary: #B69D87;
+  --primary_text: #0F0B0B;
+  --primary_accent: #4B0E20;
+}
+
+.lategram_dark {
+  --primary: #0F0B0B;
+  --primary_text: #B69D87;
+  --primary_accent: #4B0E20;
+}
