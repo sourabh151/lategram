@@ -674,10 +674,21 @@ video {
   --primary_accent: #4B0E20;
 }
 
+.hover\:bg-pink-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 39 119 / var(--tw-bg-opacity, 1));
+}
+
 .focus\:outline-primary_accent:focus {
   outline-color: var(--primary_accent);
 }
 
 .active\:outline-primary:active {
   outline-color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .md\:w-96 {
+    width: 24rem;
+  }
 }
