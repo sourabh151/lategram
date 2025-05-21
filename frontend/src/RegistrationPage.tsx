@@ -43,7 +43,7 @@ function RegistrationPage() {
 
   }
   return (
-    <div className="mx-4 w-full border border-neutral-800 rounded-md p-2 bg-primary_highlight text-primary_accent"
+    <div className="mx-4 w-full border border-neutral-800 rounded-md p-2 bg-primary_highlight text-primary_accent md:w-96"
     >
       <div className="w-full h-12 flex gap-2">
         <button className={`flex-grow text-2xl font-bold h-full rounded-md  active:scale-95 transition-all duration-300 ease ${isLogin ? " bg-primary_accent text-primary_text" : " bg-primary text-primary_accent"}`} onClick={() => setIsLogin(true)}>Login</button>

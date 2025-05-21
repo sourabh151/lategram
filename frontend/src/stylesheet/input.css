@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .lategram_light {
-  --primary: #ffffff;
+  --primary: #5e2af8;
+;
   --primary_text: #1f1f1f;
   --primary_accent: #c4f82a;
   --primary_highlight:#333333;

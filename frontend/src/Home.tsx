@@ -1,22 +1,29 @@
 import { useNavigate } from "react-router-dom"
-import type { UserDataType } from "./index.d.ts";
+import { useUserContext } from "./contexts/UserContext.tsx";
+import Navbar from "./Navbar.tsx";
+import { useEffect } from "react";
 
 function Home() {
   const navigate = useNavigate()
-  const userData = localStorage.getItem("user");
-  let user: UserDataType = {
-    success: false,
-    token: "",
-    username: ""
-  };
-  if (!userData) {
-    navigate("/")
-  }
-  else {
-    user = JSON.parse(userData)
-  }
+  const { userData, setUserData } = useUserContext()
+
+  useEffect(() => {
+    const data = localStorage.getItem("user");
+    if (!data) {
+      navigate("/")
+    }
+    else {
+      setUserData(JSON.parse(data))
+    }
+  },[])
   return (
-    <div className="text-primary_text">{user.username}</div>
+    <>
+      <Navbar />
+      <div className="text-primary_text">
+        <p>{userData.username}</p>
+        <p>hello</p>
+      </div>
+    </>
   )
 }
 
