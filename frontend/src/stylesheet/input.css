@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 .lategram_light {
-  --primary: #B69D87;
-  --primary_text: #0F0B0B;
-  --primary_accent: #4B0E20;
+  --primary: #ffffff;
+  --primary_text: #1f1f1f;
+  --primary_accent: #c4f82a;
+  --primary_highlight:#333333;
 }
 
 .lategram_dark {
-  --primary: #0F0B0B;
-  --primary_text: #B69D87;
-  --primary_accent: #4B0E20;
+  --primary: #1f1f1f;
+  --primary_text: #ffffff;
+  --primary_accent: #c4f82a;
+  --primary_highlight:#333333;
 }
