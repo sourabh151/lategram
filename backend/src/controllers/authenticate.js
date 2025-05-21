@@ -11,7 +11,7 @@ async function login(req, res) {
     throw new BadRequestError("incorrect password")
   const tokenData = {
     id: checkUser._id,
-    exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
+    exp: Math.floor(Date.now() / 1000) + Number(process.env.EXPIRES_IN),
   }
   const token = jwt.sign(tokenData, process.env.SECRET_KEY)
   console.log(token)
@@ -27,7 +27,7 @@ async function signup(req, res) {
   const tokenData = {
     username: user.username,
     id: user._id,
-    exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
+    exp: Math.floor(Date.now() / 1000) + Number(process.env.EXPIRES_IN),
   }
   const token = jwt.sign(tokenData, process.env.SECRET_KEY)
   res.json({ success: true, token: token, username: req.body.username })
