@@ -16,7 +16,7 @@ function Home() {
     user = JSON.parse(userData)
   }
   return (
-    <div>{user.username}</div>
+    <div className="text-primary_text">{user.username}</div>
   )
 }
 

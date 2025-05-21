@@ -43,16 +43,16 @@ function RegistrationPage() {
 
   }
   return (
-    <div className="mx-4 w-full border border-neutral-800 rounded-md p-2 bg-primary text-primary_accent"
+    <div className="mx-4 w-full border border-neutral-800 rounded-md p-2 bg-primary_highlight text-primary_accent"
     >
-      <div className="w-full h-12">
-        <button className={`text-2xl font-bold w-1/2 h-full rounded-md ${isLogin ? " bg-primary_accent text-primary" : " bg-primary text-primary_accent"}`} onClick={() => setIsLogin(true)}>Login</button>
-        <button className={`text-2xl font-bold w-1/2 h-full rounded-md ${isLogin ? " bg-primary text-primary_accent" : " bg-primary_accent text-primary"}`} onClick={() => setIsLogin(false)}>Signup</button>
+      <div className="w-full h-12 flex gap-2">
+        <button className={`flex-grow text-2xl font-bold h-full rounded-md  active:scale-95 transition-all duration-300 ease ${isLogin ? " bg-primary_accent text-primary_text" : " bg-primary text-primary_accent"}`} onClick={() => setIsLogin(true)}>Login</button>
+        <button className={`flex-grow text-2xl font-bold h-full rounded-md  active:scale-95 transition-all duration-300 ease ${isLogin ? " bg-primary text-primary_accent" : " bg-primary_accent text-primary_text"}`} onClick={() => setIsLogin(false)}>Signup</button>
       </div>
       <div className="w-full h-48 flex flex-col justify-around">
-        <input type="text" id="username" placeholder="username" className="w-full rounded-md focus:outline-primary_accent p-2 font-semibold text-xl" ref={username} />
-        <input type="password" id="password" placeholder="password" className="w-full rounded-md focus:outline-primary_accent p-2 font-semibold text-xl" ref={password} />
-        <button className="w-full rounded-md bg-primary_accent p-2 text-center font-bold text-primary active:outline-primary text-2xl" onClick={handleClick}>
+        <input type="text" id="username" placeholder="username" className="w-full rounded-md focus:outline-primary_accent p-2 font-semibold text-xl bg-primary" ref={username} />
+        <input type="password" id="password" placeholder="password" className="w-full rounded-md focus:outline-primary_accent p-2 font-semibold text-xl bg-primary" ref={password} />
+        <button className="w-full rounded-md bg-primary_accent p-2 text-center font-bold text-primary_text active:outline-primary text-2xl active:scale-95 transition-all duration-300 ease" onClick={handleClick}>
           {
             isLogin ? "Login" : "Signup"
           }

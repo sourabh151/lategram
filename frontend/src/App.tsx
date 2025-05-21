@@ -4,7 +4,7 @@ import Home from "./Home"
 
 function App() {
   return (
-    <div className="w-screen h-screen flex items-center justify-center lategram_light bg-primary_accent" style={{}}>
+    <div className="w-screen h-screen flex items-center justify-center lategram_dark bg-primary" style={{}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RegistrationPage />}></Route>
