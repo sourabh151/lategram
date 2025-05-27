@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUserContext } from "./contexts/UserContext"
-const url = import.meta.env.VITE_MONGO_URI
+const url = import.meta.env.VITE_SERVER_URI
 function RegistrationPage() {
   const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(true)

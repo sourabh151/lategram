@@ -7,7 +7,7 @@
 //}
 
 interface ImportMetaEnv {
-  readonly VITE_MONGO_URI: string
+  readonly VITE_SERVER_URI: string
   // more env variables...
 }
 

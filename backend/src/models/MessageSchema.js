@@ -1,13 +1,9 @@
-const { model, Schema, ObjectId } = require("mongoose")
+const { model, Schema } = require("mongoose")
 
 const MessageSchema = new Schema({
   authorId: {
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     required: [true, "author id required to compose message"]
-  },
-  recipientId: {
-    type: ObjectId,
-    required: [true, "recipient id required to compose message"]
   },
   dataType: {
     type: String,
@@ -24,4 +20,8 @@ const MessageSchema = new Schema({
   }
 })
 
-module.exports = model("Message", MessageSchema)
+
+module.exports = {
+  Message: new model("Message", MessageSchema),
+  MessageSchema
+} 

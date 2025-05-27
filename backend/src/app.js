@@ -8,8 +8,10 @@ require("dotenv").config()
 const authenticationRouter = require("./routes/authenticate.js")
 const authorize = require("./routes/authorize.js")
 const messageRouter = require("./routes/messages.js");
+const chatsRouter = require("./routes/chats.js");
 const errorHandler = require("./middleware/errorHandler.js");
 const notFound = require("./middleware/notFound.js");
+const logger = require("./middleware/logger.js");
 
 //cors
 app.use(cors())
@@ -17,17 +19,14 @@ app.use(cors())
 app.use(express.json())
 
 //logger
-app.use((req, res, next) => {
-  console.log(req.url,req.method)
-  console.log(req.body)
-  next()
-})
+app.use(logger)
 
 //authentication route
 app.use("/authenticate", authenticationRouter)
 
 //protected routes
 app.use("/message", authorize, messageRouter)
+app.use("/chats", authorize, chatsRouter)
 
 
 app.use(errorHandler, notFound)
