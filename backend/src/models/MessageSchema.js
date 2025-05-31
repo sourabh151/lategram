@@ -5,6 +5,10 @@ const MessageSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: [true, "author id required to compose message"]
   },
+  chatId: {
+    type: Schema.Types.ObjectId,
+    required: [true, "chat id required to compose message"]
+  },
   dataType: {
     type: String,
     enum: ["String", "Image"],
