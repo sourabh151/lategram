@@ -18,10 +18,9 @@ async function login(req, res) {
   res.json({ success: true, token: token, username: checkUser.username, })
 }
 async function signup(req, res) {
-  const password = bcryptjs.hashSync(req.body.password)
   const user = await User.create({
     username: req.body.username,
-    password: password
+    password: req.body.password
   })
   await user.save();
   const tokenData = {

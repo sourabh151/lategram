@@ -8,16 +8,34 @@ const limit = 20;
 
 async function getMessages(req, res) {
   const { chat_id, page } = req.query
-  Chat.f
+  if (page < 1) {
+    throw new BadRequestError("invalid page queried")
+  }
+  const chat = await Chat.findById(chat_id)
+  if (!chat) {
+    throw new BadRequestError("chat does not exist")
+  }
+  chat.populate({
+    path: "messages",
+    options: {
+      sort: { "time": -1 },
+      skip: (page - 1) * limit,
+      limit: limit
+    }
+  })
+  return res.status(200).json({
+    success: true,
+    data: chat.messages
+  })
 }
 async function sendMessage(req, res) {
-  const { recipient_id } = req.query
-  const newMessage = await Message.create({
-    authorId: req.user._id,
-    recipientId: recipient_id,
+  const { chat_id, author_id } = req.query
+  const newMessage = await new Message({
+    authorId: author_id,
+    chatId: chat_id,
     dataType: req.body.dataType,
-    data: Buffer.from(req.body.data),
-    time: new Date()
+    data: req.body.data,
+    time: Date.now()
   })
   return res.status(201).json({
     success: true,
